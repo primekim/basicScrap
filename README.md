@@ -1,4 +1,4 @@
-스크래핑 Sample
+Web Scraping Sample
 ================
 
 This is an H2
@@ -11,7 +11,12 @@ This is an H2
 ##### This is a H5
 ###### This is a H6
 
-##### 1. mkdir scrapBasic
+##### 1. mkdir webscraping
 
-##### 2. cd scrapBasic
+##### 2. cd webscraping
+
+##### 3. npm init -y
+       - package.json 파일이 생성됨.
+##### 4. 
+
 
