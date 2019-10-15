@@ -86,3 +86,31 @@ This is an H2
            });
          }
        });
+       
+##### 9. scrape2.js 
+       const request = require('request');
+       const cheerio = require('cheerio');
+
+       request('http://www.naver.com', (error, response, html) => {
+         if(!error && response.statusCode == 200) {
+           const $ = cheerio.load(html);
+
+           const search = $('.search');
+           // console.log(search.html());
+           // console.log(search.text());
+           const form = search.find('form');
+           console.log(form.html());
+
+           const btn = $(form).find('button');
+           console.log('**********************');
+           // console.log(btn.text());
+
+           console.log(btn.find('.blind').html()); // unicode
+           console.log(btn.find('.blind').text());
+
+           const action = btn.attr('onclick');
+           console.log('function:: ', action);
+
+         }
+       });
+
