@@ -57,3 +57,32 @@ This is an H2
            console.log(search.text());
          }
        });
+
+##### 8. naver.com 에서 html element 찾기
+       const request = require('request');
+const cheerio = require('cheerio');
+
+request('http://www.naver.com', (error, response, html) => {
+  if(!error && response.statusCode == 200) {
+    const $ = cheerio.load(html);
+
+    const search = $('.search');
+    // console.log(search.html());
+    // console.log(search.text());
+    const form = search.find('form');
+    console.log(form.html());
+
+    const input = form.find('input');
+    // console.log(input);
+
+    input.each((i, el) => {
+      const item = $(el).text();
+      const itemId = $(el).attr('id');
+      const itemName = $(el).attr('name');
+      const type = $(el).attr('type');
+
+      console.log('item : ', itemId + ' : ' +  itemName + ' :: '+ type);
+      // console.log('item element: ', $(el).attr('name'));
+    });
+  }
+});
