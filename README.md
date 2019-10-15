@@ -21,5 +21,9 @@ This is an H2
        - package.json 파일이 생성됨.
 ##### 4. cheerio, request 설치
        - npm i cheerio request
+       - package.json 파일의 dependencies 에
+          "cheerio": "^1.0.0-rc.3",
+          "request": "^2.88.0" 
+          추가 됨.
 
 
