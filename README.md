@@ -131,8 +131,5 @@ This is an H2
          }
        });
 
-=========================================
 
-### 1. scrape4.js
-       npm install node-fetch
        
