@@ -35,3 +35,6 @@ This is an H2
            console.log(html);
          }
        });
+##### 6. 터미널에서 실행
+       node scrape.js
+
