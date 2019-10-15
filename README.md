@@ -26,4 +26,12 @@ This is an H2
           "request": "^2.88.0" 
           추가 됨.
 
+##### 5. scrape.js 생성
+       const request = require('request');
+       const cheerio = require('cheerio');
 
+       request('http://www.naver.com', (error, response, html) => {
+         if(!error && response.statusCode == 200) {
+           console.log(html);
+         }
+       });
