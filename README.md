@@ -35,6 +35,25 @@ This is an H2
            console.log(html);
          }
        });
-##### 6. 터미널에서 실행
+##### 6. 터미널에서 실행 후 html 결과를 확인
        node scrape.js
 
+
+----------------------------
+
+##### 7. scrape.js 수정
+       const request = require('request');
+       const cheerio = require('cheerio');
+
+       request('http://www.naver.com', (error, response, html) => {
+         if(!error && response.statusCode == 200) {
+           const $ = cheerio.load(html);
+
+           // html중에서 class 가 'search' 인 dom를 검색
+           const search = $('.search'); 
+           
+           // 'search' dom에 대한 html / text 만 출력
+           console.log(search.html()); 
+           console.log(search.text());
+         }
+       });
