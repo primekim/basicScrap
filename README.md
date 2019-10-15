@@ -11,7 +11,7 @@ This is an H2
 ##### This is a H5
 ###### This is a H6
 
-##### mkdir scrapBasic
+##### 1. mkdir scrapBasic
 
-##### cd scrapBasic
+##### 2. cd scrapBasic
 
