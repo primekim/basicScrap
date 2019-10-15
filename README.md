@@ -19,6 +19,7 @@ This is an H2
 
 ##### 3. npm init -y
        - package.json 파일이 생성됨.
-##### 4. 
+##### 4. cheerio, request 설치
+       - npm i cheerio request
 
 
