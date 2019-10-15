@@ -114,3 +114,19 @@ This is an H2
          }
        });
 
+##### scrape3.js
+       const request = require('request');
+       const cheerio = require('cheerio');
+       const fs = require('fs');
+       const writeStream = fs.createWriteStream('inputValue.txt');
+
+       request('http://www.naver.com', (error, response, html) => {
+         if(!error && response.statusCode == 200) {
+           const $ = cheerio.load(html);
+           const input = $('#sform').find('input');
+           input.each((i, el) => {
+             console.log('index: %s, %s: %s = %s', i, $(el).attr('id'), $(el).attr('name') , $(el).attr('value') );
+             writeStream.write(`index: ${i}, ${$(el).attr('id')}, ${$(el).attr('name')} \n`);
+           })
+         }
+       });
