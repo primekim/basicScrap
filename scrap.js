@@ -28,12 +28,16 @@ request({url, encoding: null}, (error, response, html) => {
     console.log(enc)
     let contents = iconv.convert(html).toString();
     let $ = cheerio.load(contents)
-    let newsList = $('div.hdline_news')
+    let news = $('div.hdline_news')
     // console.log(newsList.text())
-    
+    let list = []
     $('.hdline_article_list  li  a').each((index, item) => {
-      console.log($(item).attr('href'))
-      console.log($(item).text())
+      let headLine = {
+        title: $(item).text(),
+        href: $(item).attr('href')
+      }
+      list.push(headLine)
     })
+    console.log(list)
   }
 })
