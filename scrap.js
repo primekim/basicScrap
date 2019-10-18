@@ -1,7 +1,9 @@
 const request = require('request')
 const cheerio = require('cheerio')
 const charset = require('charset')
-const Iconv  = require('iconv').Iconv;
+const Iconv  = require('iconv').Iconv
+const fs = require('fs')
+const writeStream = fs.createWriteStream('headline.txt')
 
 const iconv = new Iconv('euc-kr', 'utf-8')
 
@@ -31,13 +33,16 @@ request({url, encoding: null}, (error, response, html) => {
     let news = $('div.hdline_news')
     // console.log(newsList.text())
     let list = []
-    $('.hdline_article_list  li  a').each((index, item) => {
+    $('.hdline_article_list li a').each((index, item) => {
       let headLine = {
-        title: $(item).text(),
-        href: $(item).attr('href')
+        title: $(item).text().trim(),
+        href: $(item).attr('href').trim()
       }
-      list.push(headLine)
+      if (headLine.title.indexOf('관련기사') === -1) {
+        list.push(headLine)
+        writeStream.write(`${index} ${headLine.title} ${headLine.href} \n`)
+      }
     })
-    console.log(list)
+    console.log(JSON.stringify(list))
   }
 })
