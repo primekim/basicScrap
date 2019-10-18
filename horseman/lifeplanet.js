@@ -11,7 +11,7 @@ horseman
   // .then(body => {
   //   console.log(body);
   // })
-  .type('input#plnnrBrdt', '731114')
+  .type('input#plnnrBrdt', '900101')
   .click('input#plnnrMale')
   .click('input#smokN')
   .click('button#fastPayCalc')
